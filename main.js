@@ -1,6 +1,6 @@
 function analisarHumor(texto) {
-    const positivo = ['feliz','alegre','animado','grato','ótimo','bem']
-    const negativo = ['triste','cansado','chateado','pessimo']
+    const positivo = ['feliz','alegre','animado','grato','ótimo','bem','contente','calmo'];
+    const negativo = ['triste','cansado','chateado','pessimo','mal','deprimido','ansioso','estressado','raiva'];
     const textoMin = texto.lowerCase();
     let score = 0;
     positivo.forEach(palavra => {
@@ -76,5 +76,4 @@ function mostrarFrase() {
     }
     const utimaEntrada = entradas[0];
     const humor = utimaEntrada.humor;
-    lista
 }
