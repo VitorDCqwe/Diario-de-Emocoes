@@ -77,3 +77,33 @@ function mostrarFrase() {
     const utimaEntrada = entradas[0];
     const humor = utimaEntrada.humor;
 }
+
+const frases = {
+    "Feliz": [
+        "Constinue espalhando assa alegria!",
+        "Sua felicidade é contagiante. Viva intensamente!",
+        "Aproveite esse bom momento para conquistar ainda mais"
+    ],
+    "Triste": [
+        "Dias difíceis fazem parte. Você não está só",
+        "Respire fundo. Tudo passa. Você é mais forte do que imagina.",
+        "Permita-se sentir e cuidar de você. Vai melhorar."
+    ],
+    "Neutro": [
+        "Cada dia é uma nova chance de escrever sua história.",
+        "O quilíbrio é poder",
+        "Às vezes, só o tempo e o silêncio nos mostram o caminho certo."
+    ],
+};
+
+const opcoes = frases[humor] || frases["Neutro"];
+const aleatoria = opcoes[Math.floor(Math.random() * opcoes.length)];
+document.getElementById("fraseMotivacional").textContent = `"${aleatoria}`;
+if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(aleatoria);
+    utterance.lang = "pt-br";
+    window.speechSynthesis.speak(utterance);
+}
+else {
+    alert ("Esse navegador não suporta leitura em voz alta.");
+}
